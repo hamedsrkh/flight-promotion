@@ -1,13 +1,14 @@
 <template>
   <h1>Home page</h1>
+  <pre>
+    {{JSON.stringify(data, null, 2)}}
+  </pre>
 </template>
 
 <script setup lang="ts">
-    import {onMounted} from "vue";
+    import { useFetch } from '@/composables/useFetch'
+    import { toRefs } from 'vue'
+    const { state } = useFetch('/promotions')
+    const { data, error, loading } = toRefs(state);
 
-    onMounted(async () => {
-      const response = await fetch('/promotions')
-      const data = await response.json()
-      console.log(data)
-    })
 </script>
