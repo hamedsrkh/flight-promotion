@@ -7,8 +7,8 @@
         >
           <ComboboxInput
             class="combobox-input"
-            :displayValue="(item) => (item as Item).label"
-            @change="query = $event.target.value"
+            :displayValue="(item) => (item as Item)?.label"
+            @change="search = $event.target.value"
             @focus='focused = true'
             @blur='focused = false'
           />
@@ -25,7 +25,7 @@
             class="combobox-options"
           >
             <div
-              v-if="filteredItem.length === 0 && query !== ''"
+              v-if="filteredItem.length === 0 && search !== ''"
               class=""
             >
               Nothing found.
@@ -39,7 +39,7 @@
             >
               <li
                 class="combobox-option"
-                :class='{"combobox-option--selected" : item.value === selectedValue.value}'
+                :class='{"combobox-option--selected" : item.value === selectedValue?.value}'
               >
                 <span
                   class="combobox-option--text"
@@ -62,15 +62,15 @@ import {
   ComboboxOptions,
   ComboboxOption,
 } from '@headlessui/vue'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/24/solid'
+import { ChevronUpDownIcon } from '@heroicons/vue/24/solid'
 
 interface Item {
   label: string,
   value: string
 }
 const props = defineProps<{
-  items: Item[]
-  modelValue: Item
+  items: Item[],
+  modelValue?: Item | null
 }>()
 const emit = defineEmits(['update:modelValue'])
 
@@ -83,17 +83,17 @@ const selectedValue = computed({
   }
 })
 
-let focused = ref<boolean>()
-let query = ref('')
+let focused = ref<boolean>(false)
+let search = ref('')
 
 let filteredItem = computed(() =>
-  query.value === ''
+  search.value === ''
     ? props.items
     : props.items.filter((item) =>
-      item.label
+      item?.label
         .toLowerCase()
         .replace(/\s+/g, '')
-        .includes(query.value.toLowerCase().replace(/\s+/g, ''))
+        .includes(search.value.toLowerCase().replace(/\s+/g, ''))
     )
 )
 </script>
