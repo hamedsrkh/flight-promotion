@@ -1,9 +1,10 @@
 import { CITIES } from '@/const/cities'
+import type { Promotion } from '@/types'
 
 function randomCitySelector(cities: typeof CITIES){
   return cities[Math.floor(Math.random() * cities.length)].value
 }
-export function createRandomPromotions() {
+export function createRandomPromotions(): Promotion[] {
   const promotions = []
   for (let i = 1; i <= 100; i++) {
     const origin = randomCitySelector(CITIES)
@@ -33,5 +34,5 @@ export function getRandomDate() {
   // Generate a random day between 1 and 28 (to simplify, assuming all months have 28 days)
   const day = Math.floor(Math.random() * 28) + 1
   // Create a new Date object with the random values
-  return new Date(year, month - 1, day)
+  return new Date(year, month - 1, day).toDateString()
 }

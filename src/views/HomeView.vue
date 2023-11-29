@@ -1,14 +1,15 @@
 <template>
   <GridContainer>
-    <h1>Home page</h1>
     <GridRow>
-      <GridColumn sm='6'><Autocomplete v-model='origin' :items="mappedCities" /></GridColumn>
-      <GridColumn sm='6'><Autocomplete v-model='destination' :items="mappedCities" /></GridColumn>
+      <GridColumn sm='6'>
+        <Autocomplete v-model='origin' :items='mappedCities' />
+      </GridColumn>
+      <GridColumn sm='6'>
+        <Autocomplete v-model='destination' :items='mappedCities' />
+      </GridColumn>
     </GridRow>
   </GridContainer>
-  <pre>
-    {{ JSON.stringify(FilteredPromotions, null, 2) }}
-  </pre>
+  <PromotionsList v-if='filteredPromotions?.length' :promotions='filteredPromotions'/>
 </template>
 
 <script setup lang='ts'>
@@ -19,17 +20,16 @@ import GridContainer from '@/components/layouts/GridContainer.vue'
 import GridRow from '@/components/layouts/GridRow.vue'
 import GridColumn from '@/components/layouts/GridColumn.vue'
 import { CITIES } from '@/const/cities'
-import type { Promotions } from '@/types'
+import type { AutoCompleteItem, Promotion } from '@/types'
+import PromotionsList from '@/components/global/promotions/promotionsList.vue'
 
-const { state } = useFetch<Promotions>('/promotions')
+const { state } = useFetch<Promotion[]>('/promotions')
 const { data: promotions } = toRefs(state)
-const origin = ref<{label: string, value: string} | null>(null)
-const destination = ref<{label: string, value: string} | null>(null)
-const mappedCities = computed(()=> CITIES.map(city => ({label: city.name, value: city.value})))
-const FilteredPromotions = computed(()=> {
+const origin = ref<AutoCompleteItem | null>(null)
+const destination = ref<AutoCompleteItem | null>(null)
+const mappedCities = computed(() => CITIES.map(city => ({ label: city.name, value: city.value })))
+const filteredPromotions = computed(() => {
   return promotions.value?.filter(promotion => (promotion.origin === origin.value?.value && promotion.destination === destination.value?.value))
 })
-
-
 
 </script>
