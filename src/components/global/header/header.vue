@@ -1,7 +1,9 @@
 <template>
-  <header>
+  <header class='header'>
     <GridContainer>
-      <h1>EuroWings</h1>
+      <span class='logo'>
+        <img src='@/assets/img/logo.svg' alt='Eurowings Logo'>
+      </span>
     </GridContainer>
   </header>
 </template>
@@ -10,7 +12,7 @@ import GridContainer from '@/components/layouts/GridContainer.vue'
 </script>
 
 <style scoped>
-header{
+.header{
   min-height: 75px;
   display: flex;
   align-items: center;
@@ -18,5 +20,9 @@ header{
   background-color: white;
   box-shadow: 0 6px 6px 0 rgba(0,0,0,.18);
   margin-bottom: 20px;
+}
+.logo{
+  display: inline-block;
+  width: 140px;
 }
 </style>

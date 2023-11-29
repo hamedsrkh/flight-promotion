@@ -12,7 +12,6 @@ defineProps<{
 }>()
 </script>
 
-
 <style scoped>
 .promotion-list-section{
   margin: 20px 0;

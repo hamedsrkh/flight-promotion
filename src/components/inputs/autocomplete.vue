@@ -15,7 +15,7 @@
         <ComboboxButton
           class='combobox-button'
         >
-          <ChevronUpDownIcon
+          <ChevronUpDown
             class='icon'
             aria-hidden='true'
           />
@@ -62,7 +62,7 @@ import {
   ComboboxOptions,
   ComboboxOption
 } from '@headlessui/vue'
-import { ChevronUpDownIcon } from '@heroicons/vue/24/solid'
+import ChevronUpDown from '@/components/icons/chevron-up-down.vue'
 
 interface Item {
   label: string,
@@ -85,7 +85,7 @@ const selectedValue = computed({
 })
 
 let focused = ref<boolean>(false)
-let search = ref('')
+let search = ref<string>('')
 
 let filteredItem = computed(() =>
   search.value === ''

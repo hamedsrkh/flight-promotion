@@ -1,8 +1,13 @@
 import { CITIES } from '@/const/cities'
 import type { Promotion } from '@/types'
+import moment from 'moment'
 
 function randomCitySelector(cities: typeof CITIES){
   return cities[Math.floor(Math.random() * cities.length)].value
+}
+
+function randomInteger(to: number, from: number = 0){
+  return Math.floor(Math.random() * to) + from
 }
 export function createRandomPromotions(): Promotion[] {
   const promotions = []
@@ -10,14 +15,15 @@ export function createRandomPromotions(): Promotion[] {
     const origin = randomCitySelector(CITIES)
     const citiesExceptOrigin = CITIES.filter(city => city.value !== origin)
     const destination = randomCitySelector(citiesExceptOrigin)
+    const date = getRandomDate()
     promotions.push({
       origin,
       destination,
-      departureDate: getRandomDate(),
-      returnDate: getRandomDate(),
-      seatAvailability: Math.floor(Math.random() * 10) + 1,
+      departureDate: date.format('YYYY-MM-DD hh:mm'),
+      returnDate: date.add(randomInteger(10 , 1),'days').format('YYYY-MM-DD hh:mm'),
+      seatAvailability: randomInteger(10 , 1),
       price: {
-        amount: 430,
+        amount: randomInteger(100 , 400),
         currency: 'EUR'
       },
       'offerType': 'BestPrice',
@@ -28,11 +34,6 @@ export function createRandomPromotions(): Promotion[] {
 }
 
 export function getRandomDate() {
-  const year = 2024
-  // Generate a random month between 1 and 12
-  const month = Math.floor(Math.random() * 12) + 1
-  // Generate a random day between 1 and 28 (to simplify, assuming all months have 28 days)
-  const day = Math.floor(Math.random() * 28) + 1
-  // Create a new Date object with the random values
-  return new Date(year, month - 1, day).toDateString()
+  const hour = randomInteger(12 , 1)
+  return moment(Date.now()).set('hour', hour).set('minutes', 0)
 }

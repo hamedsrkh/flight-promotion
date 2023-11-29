@@ -8,13 +8,13 @@
         <Autocomplete v-model='destination' :items='mappedCities' />
       </GridColumn>
     </GridRow>
+    <PromotionsList v-if='filteredPromotions?.length' :promotions='filteredPromotions'/>
   </GridContainer>
-  <PromotionsList v-if='filteredPromotions?.length' :promotions='filteredPromotions'/>
 </template>
 
 <script setup lang='ts'>
 import { computed, ref, toRefs } from 'vue'
-import Autocomplete from '@/components/inputs/v-autocomplete.vue'
+import Autocomplete from '@/components/inputs/autocomplete.vue'
 import { useFetch } from '@/composables/useFetch'
 import GridContainer from '@/components/layouts/GridContainer.vue'
 import GridRow from '@/components/layouts/GridRow.vue'
