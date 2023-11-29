@@ -19,8 +19,8 @@ export function createRandomPromotions(): Promotion[] {
     promotions.push({
       origin,
       destination,
-      departureDate: date.format('YYYY-MM-DD hh:mm'),
-      returnDate: date.add(randomInteger(10 , 1),'days').format('YYYY-MM-DD hh:mm'),
+      departureDate: date.add(randomInteger(3 , 1),'days').format('YYYY-MM-DD hh:mm'),
+      returnDate: date.add(randomInteger(10 , 4),'days').format('YYYY-MM-DD hh:mm'),
       seatAvailability: randomInteger(10 , 1),
       price: {
         amount: randomInteger(100 , 400),

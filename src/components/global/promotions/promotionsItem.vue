@@ -61,5 +61,10 @@ defineProps<{
 .promotion-item-route {
   display: flex;
   align-items: center;
+  gap: 5px;
+}
+
+.promotion-item-date{
+  width: 200px;
 }
 </style>
