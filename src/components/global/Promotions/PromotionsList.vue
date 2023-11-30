@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang='ts'>
-import PromotionsItem from '@/components/global/promotions/promotionsItem.vue'
+import PromotionsItem from '@/components/global/Promotions/PromotionsItem.vue'
 import type { Promotion } from '@/types'
 defineProps<{
   promotions: Promotion[]

@@ -62,7 +62,7 @@ import {
   ComboboxOptions,
   ComboboxOption
 } from '@headlessui/vue'
-import ChevronUpDown from '@/components/icons/chevron-up-down.vue'
+import ChevronUpDown from '@/components/icons/ChevronUpDown.vue'
 
 interface Item {
   label: string,
@@ -112,6 +112,7 @@ let filteredItem = computed(() =>
   border-radius: 8px;
   color: #212529;
   height: 56px;
+  margin-bottom: 10px;
 
   &.combobox-input__focused {
     border-color: #af1e65;

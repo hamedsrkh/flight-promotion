@@ -13,11 +13,11 @@
 </template>
 
 <script setup lang='ts'>
-import Autocomplete from '@/components/inputs/autocomplete.vue'
+import Autocomplete from '@/components/inputs/Autocomplete.vue'
 import GridContainer from '@/components/layouts/GridContainer.vue'
 import GridRow from '@/components/layouts/GridRow.vue'
 import GridColumn from '@/components/layouts/GridColumn.vue'
-import PromotionsList from '@/components/global/promotions/promotionsList.vue'
+import PromotionsList from '@/components/global/Promotions/PromotionsList.vue'
 import useFilterPromotions from '@/composables/useFilterPromotions'
 const { origin, destination, originCities, destinationCities, filteredPromotions } = useFilterPromotions()
 
