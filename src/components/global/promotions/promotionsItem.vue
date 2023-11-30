@@ -2,8 +2,8 @@
   <div class='promotion-item'>
     <div class='promotion-item-info'>
       <div class='promotion-item-date'>
-        <div class='promotion-item-route--date'>Departure: {{ moment(promotion.departureDate, 'YYYY-MM-DD').format('DD MMM') }}</div>
-        <div class='promotion-item-route--date'>Return: {{ moment(promotion.returnDate, 'YYYY-MM-DD').format('DD MMM') }}</div>
+        <div class='promotion-item-route--date'><span class='text-gray'>Departure:</span> {{ moment(promotion.departureDate, 'YYYY-MM-DD').format('DD MMM') }}</div>
+        <div class='promotion-item-route--date'><span class='text-gray'>Return:</span> {{ moment(promotion.returnDate, 'YYYY-MM-DD').format('DD MMM') }}</div>
 <!--  todo: is it ok to use moment here ????   -->
       </div>
       <div class='promotion-item-route'>
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class='promotion-item-price'>
-      <div class='promotion-item-price--label'>
+      <div class='promotion-item-price--label text-gray'>
         Price:
       </div>
       <div class='promotion-item-price--amount'>{{ promotion.price.amount }} {{ promotion.price.currency }}</div>
@@ -25,7 +25,6 @@
 import type { Promotion } from '@/types'
 import moment from 'moment'
 import ArrowRight from '@/components/icons/arrow-right.vue'
-
 defineProps<{
   promotion: Promotion
 }>()
@@ -46,10 +45,6 @@ defineProps<{
   padding: 20px 40px;
 }
 
-.promotion-item-price--label {
-  color: #646b71;
-}
-
 .promotion-item-price--amount {
   font-weight: bold;
 }
@@ -66,5 +61,13 @@ defineProps<{
 
 .promotion-item-date{
   width: 200px;
+}
+
+.promotion-item-route--origin, .promotion-item-route--destination {
+  font-weight: bold;
+}
+
+.text-gray{
+  color: #646b71;
 }
 </style>

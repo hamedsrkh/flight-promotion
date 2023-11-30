@@ -1,8 +1,3 @@
-<script setup lang="ts">
-import { RouterView } from 'vue-router'
-import Header from '@/components/global/header/header.vue'
-</script>
-
 <template>
   <Header/>
   <main>
@@ -10,4 +5,10 @@ import Header from '@/components/global/header/header.vue'
   </main>
 </template>
 
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
+import Header from '@/components/global/header/header.vue'
+</script>
 
+
+<!--todo: check folder structure and components name-->
