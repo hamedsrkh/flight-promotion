@@ -9,6 +9,3 @@
 import { RouterView } from 'vue-router'
 import Header from '@/components/global/Header/Header.vue'
 </script>
-
-
-<!--todo: check folder structure and components name-->

@@ -4,8 +4,8 @@
         <GridColumn md='6'>
           <div class='promotion-item-info'>
             <div class='promotion-item-date'>
-              <div class='promotion-item-route--date'><span class='text-gray'>Departure:</span> {{ moment(promotion.departureDate, 'YYYY-MM-DD').format('DD MMM') }}</div>
-              <div class='promotion-item-route--date'><span class='text-gray'>Return:</span> {{ moment(promotion.returnDate, 'YYYY-MM-DD').format('DD MMM') }}</div>
+              <div class='promotion-item-route--date'><span class='text-gray'>Departure:</span> {{ promotion.departureDate }}</div>
+              <div class='promotion-item-route--date'><span class='text-gray'>Return:</span> {{ promotion.returnDate }}</div>
               <!--  todo: is it ok to use moment here ????   -->
             </div>
             <div class='promotion-item-route'>
@@ -29,7 +29,6 @@
 
 <script setup lang='ts'>
 import type { Promotion } from '@/types'
-import moment from 'moment'
 import ArrowRight from '@/components/icons/ArrowRight.vue'
 import GridRow from '@/components/layouts/GridRow.vue'
 import GridColumn from '@/components/layouts/GridColumn.vue'

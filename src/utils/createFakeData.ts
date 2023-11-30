@@ -14,7 +14,7 @@ export function createRandomPromotion(i = 0): Promotion {
   const origin = randomCitySelector(CITIES)
   const citiesExceptOrigin = CITIES.filter(city => city.value !== origin)
   const destination = randomCitySelector(citiesExceptOrigin)
-  const date = getRandomDate()
+  const date = getMomentDate()
   return {
     origin,
     destination,
@@ -37,7 +37,7 @@ export function createRandomPromotions(): Promotion[] {
   return promotions
 }
 
-export function getRandomDate() {
-  const hour = randomInteger(12 , 1)
-  return moment(Date.now()).set('hour', hour).set('minutes', 0)
+export function getMomentDate() {
+  const hour = randomInteger(24 , 1)
+  return moment(Date.now()).set('hours', hour).set('minutes', 0)
 }
