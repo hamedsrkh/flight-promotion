@@ -1,40 +1,40 @@
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted } from 'vue'
 
 type DataState<T> = {
-  data: T | null;
-  error: Error | null;
-  loading: boolean;
-};
+  data: T | null
+  error: Error | null
+  loading: boolean
+}
 
 export function useFetch<T>(url: string) {
   const state = reactive<DataState<T>>({
     data: null,
     error: null,
-    loading: false,
-  });
+    loading: false
+  })
 
   const fetchData = async () => {
-    state.loading = true;
+    state.loading = true
     try {
-      const response = await fetch(url);
+      const response = await fetch(url)
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+        throw new Error(`Error: ${response.status}`)
       }
-      const data = await response.json();
-        state.data = data;
+      const data = await response.json()
+      state.data = data
     } catch (error) {
-        state.error = error as Error;
+      state.error = error as Error
     } finally {
-        state.loading = false;
+      state.loading = false
     }
-  };
+  }
 
   onMounted(() => {
-    fetchData();
-  });
+    fetchData()
+  })
 
   return {
     state,
-    fetchData,
-  };
+    fetchData
+  }
 }

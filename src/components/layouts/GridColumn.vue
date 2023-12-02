@@ -9,24 +9,24 @@ export default {
   props: {
     col: {
       type: [Number, String],
-      default: 12,
+      default: 12
     },
     sm: {
       type: [Number, String],
-      default: null,
+      default: null
     },
     md: {
       type: [Number, String],
-      default: null,
+      default: null
     },
     lg: {
       type: [Number, String],
-      default: null,
+      default: null
     },
     xl: {
       type: [Number, String],
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {
     Classes() {
@@ -35,15 +35,14 @@ export default {
         [`col-sm-${this.sm}`]: this.sm,
         [`col-md-${this.md}`]: this.md,
         [`col-lg-${this.lg}`]: this.lg,
-        [`col-xl-${this.xl}`]: this.xl,
-      };
-    },
-  },
-};
+        [`col-xl-${this.xl}`]: this.xl
+      }
+    }
+  }
+}
 </script>
 
 <style scoped>
-
 .col {
   flex: 1 0 0%;
 }
@@ -327,5 +326,4 @@ export default {
     width: 100%;
   }
 }
-
 </style>

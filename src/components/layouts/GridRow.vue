@@ -1,12 +1,12 @@
 <template>
-  <div class="row" v-bind='$attrs'>
+  <div class="row" v-bind="$attrs">
     <slot></slot>
   </div>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .row {
   display: flex;
   flex-wrap: wrap;

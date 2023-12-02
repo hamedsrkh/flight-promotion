@@ -34,13 +34,13 @@ self.addEventListener('message', async function (event) {
   }
 
   const allClients = await self.clients.matchAll({
-    type: 'window',
+    type: 'window'
   })
 
   switch (event.data) {
     case 'KEEPALIVE_REQUEST': {
       sendToClient(client, {
-        type: 'KEEPALIVE_RESPONSE',
+        type: 'KEEPALIVE_RESPONSE'
       })
       break
     }
@@ -48,7 +48,7 @@ self.addEventListener('message', async function (event) {
     case 'INTEGRITY_CHECK_REQUEST': {
       sendToClient(client, {
         type: 'INTEGRITY_CHECK_RESPONSE',
-        payload: INTEGRITY_CHECKSUM,
+        payload: INTEGRITY_CHECKSUM
       })
       break
     }
@@ -58,7 +58,7 @@ self.addEventListener('message', async function (event) {
 
       sendToClient(client, {
         type: 'MOCKING_ENABLED',
-        payload: true,
+        payload: true
       })
       break
     }
@@ -138,10 +138,10 @@ async function handleRequest(event, requestId) {
             status: responseClone.status,
             statusText: responseClone.statusText,
             body: responseBody,
-            headers: Object.fromEntries(responseClone.headers.entries()),
-          },
+            headers: Object.fromEntries(responseClone.headers.entries())
+          }
         },
-        [responseBody],
+        [responseBody]
       )
     })()
   }
@@ -161,7 +161,7 @@ async function resolveMainClient(event) {
   }
 
   const allClients = await self.clients.matchAll({
-    type: 'window',
+    type: 'window'
   })
 
   return allClients
@@ -234,10 +234,10 @@ async function getResponse(event, client, requestId) {
         referrer: request.referrer,
         referrerPolicy: request.referrerPolicy,
         body: requestBuffer,
-        keepalive: request.keepalive,
-      },
+        keepalive: request.keepalive
+      }
     },
-    [requestBuffer],
+    [requestBuffer]
   )
 
   switch (clientMessage.type) {
@@ -265,10 +265,7 @@ function sendToClient(client, message, transferrables = []) {
       resolve(event.data)
     }
 
-    client.postMessage(
-      message,
-      [channel.port2].concat(transferrables.filter(Boolean)),
-    )
+    client.postMessage(message, [channel.port2].concat(transferrables.filter(Boolean)))
   })
 }
 
@@ -285,7 +282,7 @@ async function respondWithMock(response) {
 
   Reflect.defineProperty(mockedResponse, IS_MOCKED_RESPONSE, {
     value: true,
-    enumerable: true,
+    enumerable: true
   })
 
   return mockedResponse
