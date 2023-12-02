@@ -11,12 +11,12 @@ describe('Autocomplete input Component', () => {
         { label: 'first label', value: 'first value' },
         { label: 'second label', value: 'second value' }
       ],
-      modelValue: { label: 'first label', value: 'first value' },
-      'onUpdate:modelValue': (e) => wrapper.setProps({ modelValue: e })
+      modelValue: { label: 'first label', value: 'first value' }
     }
   })
   it('shows the input value correctly', async () => {
-    expect(wrapper.find('#input').element.value).toContain('first label')
+    const input = wrapper.find('#input').element as HTMLInputElement
+    expect(input.value).toContain('first label')
   })
 
   it('shows the input label correctly', async () => {
