@@ -5,9 +5,9 @@ import { createRandomPromotion } from '@/utils/createFakeData'
 const promotion = createRandomPromotion()
 
 describe('PromotionItem component', () => {
-  it('renders promotion information correctly', () => {
-    const wrapper = mount(PromotionItem, { props: { promotion } })
+  const wrapper = mount(PromotionItem, { props: { promotion } })
 
+  it('renders promotion information correctly', () => {
     // Assert departure date
     expect(wrapper.findAll('.promotion-item-route--date')[0].text()).toContain('Departure:')
     expect(wrapper.findAll('.promotion-item-route--date')[0].text()).toContain(

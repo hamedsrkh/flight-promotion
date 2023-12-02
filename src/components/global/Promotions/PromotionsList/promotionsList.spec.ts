@@ -9,6 +9,6 @@ describe('PromotionsList Component', () => {
     const wrapper = mount(PromotionsList, { props: { promotions } })
 
     // Assert number of promotions
-    expect(wrapper.findAll('.promotion-item').length).toBe(5)
+    expect(wrapper.findAll('.promotion-item')).toHaveLength(5)
   })
 })
