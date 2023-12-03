@@ -9,14 +9,14 @@ describe('PromotionItem component', () => {
 
   it('renders promotion information correctly', () => {
     // Assert departure date
-    expect(wrapper.findAll('.promotion-item-route--date')[0].text()).toContain('Departure:')
-    expect(wrapper.findAll('.promotion-item-route--date')[0].text()).toContain(
+    expect(wrapper.find('.promotion-item-date--departure').text()).toContain('Departure:')
+    expect(wrapper.find('.promotion-item-date--departure').text()).toContain(
       promotion.departureDate
     )
 
     // Assert return date
-    expect(wrapper.findAll('.promotion-item-route--date')[1].text()).toContain('Return:')
-    expect(wrapper.findAll('.promotion-item-route--date')[1].text()).toContain(promotion.returnDate)
+    expect(wrapper.find('.promotion-item-date--return').text()).toContain('Return:')
+    expect(wrapper.find('.promotion-item-date--return').text()).toContain(promotion.returnDate)
 
     // Assert origin and destination
     expect(wrapper.find('.promotion-item-route--origin').text()).toContain(promotion.origin)

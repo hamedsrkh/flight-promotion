@@ -4,10 +4,10 @@
       <GridColumn md="6">
         <div class="promotion-item-info">
           <div class="promotion-item-date">
-            <div class="promotion-item-route--date">
+            <div class="promotion-item-date--departure">
               <span class="text-gray">Departure:</span> {{ promotion.departureDate }}
             </div>
-            <div class="promotion-item-route--date">
+            <div class="promotion-item-date--return">
               <span class="text-gray">Return:</span> {{ promotion.returnDate }}
             </div>
           </div>
