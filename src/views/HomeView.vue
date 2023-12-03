@@ -31,6 +31,3 @@ import useFilterPromotions from '@/composables/useFilterPromotions'
 const { origin, destination, originCities, destinationCities, filteredPromotions } =
   useFilterPromotions()
 </script>
-
-<!--todo: check all the styles and css again -->
-<!--todo: no results found -->

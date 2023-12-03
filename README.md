@@ -1,59 +1,61 @@
-# Eurowings
+## Description 📋
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is a technical assignment for EuroWings company, implemented using Vue 3, TypeScript, and Vite. It employs Vitest for unit testing, Cypress for E2E tests, and MSW (Mock Service Worker) for API mocking. 
 
-## Recommended IDE Setup
+The application is deployed on Vercel, and you can access it on the link below.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+https://flight-promotion.vercel.app/
 
-## Type Support for `.vue` Imports in TS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## How to Run 🚀
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Run the following commands to start the application:
 
-## Customize configuration
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Run Tests 
 
-```sh
-npm install
-```
+ Unit Test
+   ```bash
+   npm run test:unit
+   ```
+ End-to-End Test
+   ```bash
+   npm run test:cypress
+   ```
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
+## In a Better World 🌍
 
-```sh
-npm run build
-```
+In an ideal scenario, several improvements and enhancements could be made to this application, including:
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+- Additional Tests: Write more comprehensive tests to ensure better code coverage and reliability.
 
-```sh
-npm run test:unit
-```
+- Custom Design System: Build a custom design system with a unified theme for colors, typography, and other UI elements to enhance consistency and reusability.
 
-### Lint with [ESLint](https://eslint.org/)
+- Enhanced User Interface: Invest time in refining the user interface with improved design principles and user experience.
 
-```sh
-npm run lint
-```
+- CI/CD Pipeline: Setting up a Continuous Integration (CI) and Continuous Deployment (CD) pipeline for automating the build and deployment process. This would streamline the development workflow and ensure reliable deployments. 
 
-[//]: # 'todo: complete the readme'
+- Integrate more filters or consider building a Node.js server to replace the mock API, providing a more realistic data source.
 
-reminder :
-I decided not to use third party libraries like tailwind or material and what to show my ability to write css and custom components
-I only used headless/ui because of the time shortage, However I am able and have experience to build more complicated components than autocomplete
-building a design system based on theme values and then write this code
+
+## Technologies
+
+The assignment uses the following technologies and tools:
+
+ - Vuejs (version 3)
+ - Typescript
+ - Vite
+ - Mock service worker
+ - Vitest
+ - Cypress
+ - HeadlessUI
