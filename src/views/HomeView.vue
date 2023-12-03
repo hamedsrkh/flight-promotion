@@ -13,7 +13,10 @@
         />
       </GridColumn>
     </GridRow>
-    <PromotionsList v-if="filteredPromotions?.length" :promotions="filteredPromotions" />
+    <PromotionsList
+      v-if="filteredPromotions && origin && destination"
+      :promotions="filteredPromotions"
+    />
   </GridContainer>
 </template>
 
@@ -30,3 +33,4 @@ const { origin, destination, originCities, destinationCities, filteredPromotions
 </script>
 
 <!--todo: check all the styles and css again -->
+<!--todo: no results found -->
