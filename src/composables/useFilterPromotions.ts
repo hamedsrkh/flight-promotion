@@ -1,12 +1,11 @@
-import { computed, ref, toRefs } from 'vue'
+import { computed, ref } from 'vue'
 import { CITIES } from '@/const/cities'
 import type { AutoCompleteItem, Promotion } from '@/types'
 import { useFetch } from '@/composables/useFetch'
 import { citiesMapper, promotionsMapper } from '@/mappers'
 
 function useFilterPromotions() {
-  const { state } = useFetch<Promotion[]>('/promotions')
-  const { data: promotions } = toRefs(state)
+  const { data: promotions } = useFetch<Promotion[]>('/promotions')
   const origin = ref<AutoCompleteItem | null>(null)
   const destination = ref<AutoCompleteItem | null>(null)
 
